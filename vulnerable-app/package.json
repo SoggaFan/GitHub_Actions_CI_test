@@ -1,0 +1,18 @@
+{
+  "name": "vulnerable-server",
+  "version": "1.0.0",
+  "description": "Extended vulnerable server for SCA/SAST testing",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "4.16.0",          
+    "lodash": "4.17.10",          
+    "serialize-javascript": "2.1.2",  
+    "sqlite3": "4.0.0",           
+    "body-parser": "1.18.3",      
+    "crypto": "1.0.1"             
+
+  }
+}
