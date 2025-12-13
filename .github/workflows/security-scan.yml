@@ -19,7 +19,7 @@ jobs:
           exit-code: '1'   
           ignore-unfixed: true  
           vuln-type: 'os,library'  
-          severity: 'CRITICAL,HIGH'  
+          severity: 'MEDIUM,HIGH,CRITICAL'  
 
   sonarqube:
       name: SonarQube
