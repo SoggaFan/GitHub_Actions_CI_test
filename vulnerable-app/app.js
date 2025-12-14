@@ -15,11 +15,11 @@ const adminPassword = 'admin123';  // Плохо: hard-coded пароль
 const apiKey = 'super-secret-key-12345';  // Утечка секрета
 
 // Настройка БД (in-memory для теста, но с SQL injection риском)
-// const db = new sqlite3.Database(':memory:');
-// db.serialize(() => {
-//  db.run("CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT, password TEXT)");
-//  db.run(`INSERT INTO users (username, password) VALUES ('admin', '${adminPassword}')`);
-// });
+const db = new sqlite3.Database(':memory:');
+db.serialize(() => {
+  db.run("CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT, password TEXT)");
+  db.run(`INSERT INTO users (username, password) VALUES ('admin', '${adminPassword}')`);
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -106,5 +106,3 @@ app.post('/upload', (req, res) => {
 app.listen(port, () => {
   console.log(`Vulnerable server running at http://localhost:${port}`);
 });
-
-// For new check 
